@@ -1,1 +1,3 @@
-![Grasshopper VM](grasshopper.jpg) 
+# Grasshopper
+![Grasshopper VM](images/grasshopper.jpg) 
+## Introduction
