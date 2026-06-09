@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="1" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background Shield -->
+  <polygon points="16,1.5 29,8 29,24 16,30.5 3,24 3,8" fill="#050704" stroke="#39ff14" stroke-width="1" filter="url(#glow)" />
+  <!-- Minimal Cyber Grasshopper Head/Eyes -->
+  <g transform="translate(4,4) scale(0.75)">
+    <!-- Antennae -->
+    <path d="M 16,8 Q 14,2 8,1" fill="none" stroke="#39ff14" stroke-width="1" />
+    <path d="M 16,8 Q 18,2 24,1" fill="none" stroke="#39ff14" stroke-width="1" />
+    <!-- Head -->
+    <polygon points="16,4 11,9 11,15 16,20 21,15 21,9" fill="#151515" stroke="#39ff14" stroke-width="1.2" />
+    <!-- Glowing Eyes -->
+    <polygon points="12,11 15,12 14,15 11,14" fill="#39ff14" filter="url(#glow)" />
+    <polygon points="20,11 17,12 18,15 21,14" fill="#39ff14" filter="url(#glow)" />
+    <!-- Neck joint -->
+    <path d="M 13,21 L 19,21 L 17,25 L 15,25 Z" fill="#39ff14" fill-opacity="0.6" />
+  </g>
+</svg>
