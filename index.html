@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grasshopper - Intentionally Vulnerable Linux Machine for Ethical Hacking Beginners</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Grasshopper is an intentionally vulnerable Linux virtual machine (OVA) designed for beginner ethical hackers and CTF players. Download the lab, practice enumeration, exploit ports (SSH, Telnet, FTP, MySQL, HTTP), and learn Linux cybersecurity fundamentals.">
+  <meta name="keywords" content="vulnerable VM, CTF, boot2root, Grasshopper VM, ethical hacking, cybersecurity lab, penetration testing for beginners, Linux VM download, Hasnain Shinwari">
+  <meta name="author" content="Hasnain Shinwari">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="logo-link" id="nav-logo">
+        <div class="logo-svg-wrap">
+          <!-- Inline Logo SVG for animations -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+            <defs>
+              <filter id="nav-glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <polygon points="50,5 92,25 92,75 50,95 8,75 8,25" fill="none" stroke="#39ff14" stroke-width="2" filter="url(#nav-glow)" />
+            <polygon points="50,18 42,26 42,34 50,42 58,34 58,26" fill="#1e1e1e" stroke="#39ff14" stroke-width="1.5" />
+            <circle cx="45" cy="30" r="1.5" fill="#39ff14" />
+            <circle cx="55" cy="30" r="1.5" fill="#39ff14" />
+            <path d="M 40,25 Q 35,5 20,2" fill="none" stroke="#39ff14" stroke-width="1.5" />
+            <path d="M 60,25 Q 65,5 80,2" fill="none" stroke="#39ff14" stroke-width="1.5" />
+          </svg>
+        </div>
+        <div class="logo-text">Grass<span>hopper</span></div>
+      </a>
+      
+      <div class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item active"><a href="#hero">Home</a></li>
+        <li class="nav-item"><a href="#about">About</a></li>
+        <li class="nav-item"><a href="#objectives">Objectives</a></li>
+        <li class="nav-item"><a href="#services">Services</a></li>
+        <li class="nav-item"><a href="#features">Features</a></li>
+        <li class="nav-item"><a href="#installation">Installation</a></li>
+        <li class="nav-item"><a href="#download" class="btn btn-primary" style="padding: 0.4rem 1.2rem; font-size: 0.9rem;">Download VM</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SECTION 1: HERO -->
+  <header class="hero-section" id="hero">
+    <!-- Interactive network nodes backdrop -->
+    <canvas id="cyber-grid-canvas"></canvas>
+    
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tagline">Project V1.0 - Active Lab</div>
+        <h1 class="hero-title">GRASS<span>HOPPER</span></h1>
+        <h2 class="hero-subtitle">"An Intentionally Vulnerable Machine for Ethical Hacking Beginners"</h2>
+        <p class="hero-desc">
+          Grasshopper is a beginner-friendly vulnerable Linux virtual machine designed to help learners gain practical experience in ethical hacking, penetration testing, Linux administration, and cybersecurity fundamentals.
+        </p>
+        <div class="hero-buttons">
+          <a href="https://drive.google.com/file/d/1ADAvjq7FqWUux3D0Rn2khVlWzg-ulFpe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="hero-download-btn">
+            Download Now
+          </a>
+          <a href="#installation" class="btn btn-secondary">
+            Installation Guide
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="hero-image-wrap">
+          <!-- Embedded Large Cyber Grasshopper Hero SVG -->
+          <img src="assets/images/grasshopper-hero.svg" alt="Grasshopper Cybernetic Insect Illustration" width="600" height="400">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 2: ABOUT GRASSHOPPER -->
+  <section class="section about-section" id="about">
+    <div class="container about-grid">
+      
+      <!-- Terminal UI Block -->
+      <div class="about-terminal fade-in">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-btn red"></span>
+            <span class="terminal-btn yellow"></span>
+            <span class="terminal-btn green"></span>
+          </div>
+          <div class="terminal-title">guest@grasshopper: ~</div>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="comment"># Checking machine classification</span></div>
+          <div class="terminal-line">guest@grasshopper:~$ ./check_target.sh</div>
+          <div class="terminal-line"><span class="white">Target VM:</span> <span class="accent">Grasshopper v1.0</span></div>
+          <div class="terminal-line"><span class="white">Architecture:</span> <span class="accent">Linux (x86_64)</span></div>
+          <div class="terminal-line"><span class="white">Difficulty:</span> <span class="accent">Easy / Beginner</span></div>
+          <div class="terminal-line"><span class="white">Goal:</span> <span class="accent">Enumerate, exploit services, gain Root access</span></div>
+          <div class="terminal-line"><span class="white">Scope:</span> <span class="accent">Local host-only lab environment</span></div>
+          <div class="terminal-line"><span class="comment"># Standby for enumeration...</span></div>
+          <div class="terminal-line">guest@grasshopper:~$ <span class="cursor"></span></div>
+        </div>
+      </div>
+      
+      <!-- About Text -->
+      <div class="about-content fade-in">
+        <div class="section-title-wrap" style="text-align: left; margin-bottom: 2rem;">
+          <h2 class="section-title">About Grasshopper</h2>
+          <div class="section-subtitle">PROJECT OVERVIEW</div>
+        </div>
+        <div class="about-content-text">
+          <p>
+            Grasshopper is an intentionally vulnerable Linux virtual machine built for educational purposes. It provides a realistic environment where learners can practice ethical hacking techniques and understand how common services, open ports, and system misconfigurations can be identified and exploited in a safe and controlled lab environment.
+          </p>
+          <p>
+            As the name suggests, Grasshopper is "easy to catch", making it an ideal first step for students, cybersecurity learners, and first-time CTF participants before diving into more complex boot-to-root challenges.
+          </p>
+        </div>
+        
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="highlight-text">Safe Practice Lab</div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 12l-4-4-4 4M12 16V9"></path></svg>
+            </div>
+            <div class="highlight-text">No Setup Hassles</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: LEARNING OBJECTIVES -->
+  <section class="section objectives-section" id="objectives">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <h2 class="section-title">Learning Objectives</h2>
+        <div class="section-subtitle">WHAT YOU WILL MASTER</div>
+      </div>
+
+      <div class="objectives-grid">
+        
+        <!-- Objective 1 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">01</div>
+          <h3 class="objective-title">Linux Fundamentals</h3>
+          <p class="objective-desc">Navigate the filesystem, understand permissions, find files, and interact with the Linux command line environment.</p>
+        </div>
+
+        <!-- Objective 2 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">02</div>
+          <h3 class="objective-title">Enumeration Techniques</h3>
+          <p class="objective-desc">Learn scanning strategies with Nmap, identifying open ports, and gathering details about active daemon versions.</p>
+        </div>
+
+        <!-- Objective 3 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">03</div>
+          <h3 class="objective-title">Problem Solving</h3>
+          <p class="objective-desc">Examine hints and configuration files to build logical chains of exploit payloads and decrypt stored information.</p>
+        </div>
+
+        <!-- Objective 4 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">04</div>
+          <h3 class="objective-title">Service Exploitation</h3>
+          <p class="objective-desc">Discover weakness in legacy protocols and default configurations to gain unauthorized system entry.</p>
+        </div>
+
+        <!-- Objective 5 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">05</div>
+          <h3 class="objective-title">Basic Scripting</h3>
+          <p class="objective-desc">Understand script execution, modify basic automated tasks, and leverage command hooks to scale privileges.</p>
+        </div>
+
+        <!-- Objective 6 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">06</div>
+          <h3 class="objective-title">File Extraction</h3>
+          <p class="objective-desc">Practice handling various compressed formats (.tar, .zip, .gz, .7z) and carving out hidden files from logs.</p>
+        </div>
+
+        <!-- Objective 7 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">07</div>
+          <h3 class="objective-title">Remote Connectivity</h3>
+          <p class="objective-desc">Connect and control files remotely using SSH, Telnet, and FTP configurations safely in your sandbox.</p>
+        </div>
+
+        <!-- Objective 8 -->
+        <div class="glass-card objective-card fade-in">
+          <div class="objective-num">08</div>
+          <h3 class="objective-title">Ethical Hacking Core</h3>
+          <p class="objective-desc">Consolidate foundational pen testing strategies: information gathering, exploitation, and local privilege escalation.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: VULNERABLE SERVICES -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <h2 class="section-title">Vulnerable Services</h2>
+        <div class="section-subtitle">EXPLOITATION TARGETS</div>
+      </div>
+
+      <div class="services-grid">
+        
+        <!-- SSH -->
+        <div class="glass-card service-card ssh fade-in">
+          <div class="service-header">
+            <div class="service-icon">🔓</div>
+            <h3 class="service-title">SSH</h3>
+          </div>
+          <p class="service-desc">
+            A secure terminal environment containing weak password schemes or legacy key pairs. Test brute-force limits and key carving techniques.
+          </p>
+          <div class="service-vulns">
+            <div><span class="bullet">▪</span> <span class="label">Exploit Type:</span> <span class="val">Brute Force / Key Analysis</span></div>
+            <div><span class="bullet">▪</span> <span class="label">Hacking Skill:</span> <span class="val">Hydra, SSH Key Authentication</span></div>
+          </div>
+        </div>
+
+        <!-- Telnet -->
+        <div class="glass-card service-card telnet fade-in">
+          <div class="service-header">
+            <div class="service-icon">📡</div>
+            <h3 class="service-title">Telnet</h3>
+          </div>
+          <p class="service-desc">
+            An unencrypted legacy remote communication daemon. Learn how plaintext credential sniffing or command execution works in older networks.
+          </p>
+          <div class="service-vulns">
+            <div><span class="bullet">▪</span> <span class="label">Exploit Type:</span> <span class="val">Traffic Sniffing / Misconfig</span></div>
+            <div><span class="bullet">▪</span> <span class="label">Hacking Skill:</span> <span class="val">Wireshark, Telnet Connection</span></div>
+          </div>
+        </div>
+
+        <!-- FTP -->
+        <div class="glass-card service-card ftp fade-in">
+          <div class="service-header">
+            <div class="service-icon">📁</div>
+            <h3 class="service-title">FTP</h3>
+          </div>
+          <p class="service-desc">
+            Anonymous file logins or loose file permissions allowing students to browse system files, extract credentials, and upload web-shells.
+          </p>
+          <div class="service-vulns">
+            <div><span class="bullet">▪</span> <span class="label">Exploit Type:</span> <span class="val">Anonymous Auth / Arbitrary Read</span></div>
+            <div><span class="bullet">▪</span> <span class="label">Hacking Skill:</span> <span class="val">FTP Client, Config Exploits</span></div>
+          </div>
+        </div>
+
+        <!-- MySQL -->
+        <div class="glass-card service-card mysql fade-in">
+          <div class="service-header">
+            <div class="service-icon">🗄️</div>
+            <h3 class="service-title">MySQL</h3>
+          </div>
+          <p class="service-desc">
+            Database daemon running with root credentials or exposed configurations. Learn SQL injection, database dump queries, and hashes cracking.
+          </p>
+          <div class="service-vulns">
+            <div><span class="bullet">▪</span> <span class="label">Exploit Type:</span> <span class="val">Default Credentials / Hash Dumps</span></div>
+            <div><span class="bullet">▪</span> <span class="label">Hacking Skill:</span> <span class="val">SQL Commands, John the Ripper</span></div>
+          </div>
+        </div>
+
+        <!-- HTTP -->
+        <div class="glass-card service-card http fade-in">
+          <div class="service-header">
+            <div class="service-icon">🌐</div>
+            <h3 class="service-title">HTTP</h3>
+          </div>
+          <p class="service-desc">
+            Web applications displaying hidden directories, outdated CMS portals, or custom login portals built to teach directory traversal.
+          </p>
+          <div class="service-vulns">
+            <div><span class="bullet">▪</span> <span class="label">Exploit Type:</span> <span class="val">Directory Traversal / Web Shells</span></div>
+            <div><span class="bullet">▪</span> <span class="label">Hacking Skill:</span> <span class="val">Dirb / Gobuster, Browser Inspect</span></div>
+          </div>
+        </div>
+
+        <!-- Multiple Ports -->
+        <div class="glass-card service-card multi fade-in">
+          <div class="service-header">
+            <div class="service-icon">🔌</div>
+            <h3 class="service-title">Multiple Ports</h3>
+          </div>
+          <p class="service-desc">
+            Various obscure ports broadcasting custom backdoors or banners. Teaches the importance of broad scans and custom scripting connections.
+          </p>
+          <div class="service-vulns">
+            <div><span class="bullet">▪</span> <span class="label">Exploit Type:</span> <span class="val">Banner Grabbing / Custom Daemons</span></div>
+            <div><span class="bullet">▪</span> <span class="label">Hacking Skill:</span> <span class="val">Netcat (nc), Full Port Scans (-p-)</span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: WHO IS IT FOR? -->
+  <section class="section audience-section" id="audience">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <h2 class="section-title">Who is it for?</h2>
+        <div class="section-subtitle">DESIGNED FOR SPEEDY LEARNING</div>
+      </div>
+
+      <div class="audience-grid">
+        
+        <!-- Students -->
+        <div class="glass-card audience-card fade-in">
+          <div class="audience-icon-wrap">🎓</div>
+          <h3 class="audience-title">Students</h3>
+          <p class="audience-desc">
+            Ideal for college or high school students looking for practical labs to supplement theoretical coursework. Learn real commands, not just slide slides.
+          </p>
+        </div>
+
+        <!-- Beginners -->
+        <div class="glass-card audience-card fade-in">
+          <div class="audience-icon-wrap">🛡️</div>
+          <h3 class="audience-title">Beginners</h3>
+          <p class="audience-desc">
+            Cybersecurity enthusiasts transitioning into offensive security. Gain the confidence needed for tools like Metasploit, Nmap, and Hydra.
+          </p>
+        </div>
+
+        <!-- CTF Players -->
+        <div class="glass-card audience-card fade-in">
+          <div class="audience-icon-wrap">🚩</div>
+          <h3 class="audience-title">CTF Players</h3>
+          <p class="audience-desc">
+            Build the foundational flags-capturing knowledge. Learn how files are hidden, how hashes are compiled, and where standard clues are buried.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 6: FEATURES -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      
+      <div class="section-title-wrap">
+        <h2 class="section-title">Key Features</h2>
+        <div class="section-subtitle">BUILT FOR OFFENSIVE SECURITY PRACTICE</div>
+      </div>
+
+      <div class="features-grid">
+        
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">Beginner Friendly</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Minimal abstract challenges, clear breadcrumbs for learners.</p>
+        </div>
+
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">Safe Environment</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Local sandbox VM keeping your host system protected.</p>
+        </div>
+
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">Realistic Services</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Standard daemons (Apache, FTP, MySQL) matching real servers.</p>
+        </div>
+
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">Practical Hacking</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Hands-on commands on your Kali or Parrot OS setup.</p>
+        </div>
+
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">Linux-Based</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Improves command line fluency, configuration files analysis.</p>
+        </div>
+
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">CTF Style</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Capture user and root flags to mark progress.</p>
+        </div>
+
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">Hands-On Practice</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Move away from script-kiddie tools, master custom setups.</p>
+        </div>
+
+        <div class="feature-pill-card fade-in">
+          <span class="feature-pill-icon">🟢</span>
+          <h4 class="feature-pill-title">Virtual Lab</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary);">Easily importable OVA appliance, works on major hypervisors.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 7: INSTALLATION GUIDE -->
+  <section class="section install-section" id="installation">
+    <div class="container install-container">
+      
+      <div class="section-title-wrap">
+        <h2 class="section-title" style="text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);">Installation Guide</h2>
+        <div class="section-subtitle">TERMINAL CONSOLE SETUP</div>
+      </div>
+
+      <div class="terminal-workspace fade-in">
+        
+        <!-- Timeline Navigation Panel -->
+        <div class="install-timeline">
+          
+          <!-- Step 1 -->
+          <div class="timeline-step active" data-step="1">
+            <div class="step-num">01</div>
+            <div class="step-info">
+              <h3 class="step-title">Download Archive</h3>
+              <p class="step-text">Get the compressed lab files from Google Drive</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step" data-step="2">
+            <div class="step-num">02</div>
+            <div class="step-info">
+              <h3 class="step-title">Extract VM Image</h3>
+              <p class="step-text">Extract the .7z archive containing the .ova file</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step" data-step="3">
+            <div class="step-num">03</div>
+            <div class="step-info">
+              <h3 class="step-title">Import hypervisor</h3>
+              <p class="step-text">Import VM appliance into VirtualBox or VMware</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step" data-step="4">
+            <div class="step-num">04</div>
+            <div class="step-info">
+              <h3 class="step-title">Start Practice</h3>
+              <p class="step-text">Power up, grab ports, and deploy your exploits</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Terminal Output Viewer -->
+        <div class="terminal-docs" id="terminal-docs-view">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="terminal-btn red"></span>
+              <span class="terminal-btn yellow"></span>
+              <span class="terminal-btn green"></span>
+            </div>
+            <div class="terminal-title">lab-console: /documentation</div>
+          </div>
+          <div class="terminal-docs-body" id="terminal-docs-body">
+            <!-- Simulated logs typed via main.js -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 8: DOWNLOAD SECTION -->
+  <section class="section download-section" id="download">
+    <div class="download-card-glow"></div>
+    <div class="container">
+      <div class="download-wrap fade-in">
+        <h2 class="download-title">Ready to Catch Your First Grasshopper?</h2>
+        <p class="download-text">
+          Download the machine, load it into your hypervisor, and start your cybersecurity learning journey today.
+        </p>
+        <a href="https://drive.google.com/file/d/1ADAvjq7FqWUux3D0Rn2khVlWzg-ulFpe/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.2rem; padding: 1rem 3rem;">
+          Download Grasshopper
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <div class="footer-credits">Created by <span>Hasnain Shinwari</span></div>
+          <p style="color: var(--text-dark); font-size: 0.9rem;">Educational Cyber Labs &copy; 2026</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/Hasnain-shinwari" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="GitHub Profile">
+            <!-- GitHub SVG -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/hasnain-shinwari" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="LinkedIn Profile">
+            <!-- LinkedIn SVG -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        Disclaimer: Grasshopper is an intentionally vulnerable virtual machine created for educational purposes only. It should be used only in authorized environments and for legal cybersecurity training and practice.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="back-to-top" aria-label="Back to Top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/grasshopper-effects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
